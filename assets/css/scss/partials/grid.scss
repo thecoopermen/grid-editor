@@ -1,0 +1,120 @@
+
+/* grid container
+============================================== */
+$cols: 20;
+$margin: 10;
+$layout-width: 1020;
+$col-width: (($layout-width - $margin * 2) / $cols) - $margin * 2;
+
+
+.container-#{$cols} {
+  @include group;
+//  width: $layout-width + px;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* grid divisions
+============================================== */
+
+.grid-1,
+.grid-2,
+.grid-3,
+.grid-4,
+.grid-5,
+.grid-6,
+.grid-7,
+.grid-8,
+.grid-9,
+.grid-10,
+.grid-11,
+.grid-12,
+.grid-13,
+.grid-14,
+.grid-15,
+.grid-16,
+.grid-17,
+.grid-18,
+.grid-19,
+.grid-20,
+ {
+    margin: 0 $margin + px;
+    padding: 0;
+    display: inline;
+    float: left;
+
+    &.interior-margins {
+      margin: 0;
+    }
+}
+
+@for $i from 1 through $cols {
+    .grid-#{$i} {
+        width: (($col_width * $i) + ($margin * 2 * ($i - 1)))*0.1%;
+    }
+}
+
+/* masonry grid
+============================================== */
+
+/* gutters */
+
+.masonry { @include group; max-width: 100%; }
+.internal-margins { margin: 0; }
+
+.masonry-brick {
+  float: left;
+  max-width: 100%;
+  margin: 10px 0;
+
+  img { max-width: 100%; }
+}
+
+.box {
+  margin: $margin + px;
+  padding: 0;
+  background: #D8D5D2;
+  font-size: 11px;
+  line-height: 1.4em;
+  float: left;
+
+
+  @for $i from 1 through $cols {
+      .grid-#{$i} {
+          width: (($col_width * $i) + ($margin * 2 * ($i - 1)))*0.1%;
+      }
+  }
+
+}
+
+.rtl .box {
+  float: right;
+  text-align: right;
+  direction: rtl;
+}
+
+.col1 { width: 80px; }
+.col2 { width: 180px; }
+.col3 { width: 280px; }
+.col4 { width: 380px; }
+.col5 { width: 480px; }
+
+.col1 img { max-width: 80px; }
+.col2 img { max-width: 180px; }
+.col3 img { max-width: 280px; }
+.col4 img { max-width: 380px; }
+.col5 img { max-width: 480px; }
+
+
+.interior-margins .col-8 {
+  width: 364px;
+}
+
+.col8 img {
+  max-width: 100%;
+}
+.has-gutters .col1 { width: 90px; }
+.has-gutters .col2 { width: 230px; }
+.has-gutters .col3 { width: 370px; }
+.has-gutters .col4 { width: 550px; }
