@@ -11,15 +11,14 @@ If you have any questions, Don't be shy. Send me a line!
 [Table of contents]
 
  0.General
- 1.Layout
- 2.Navigation
- 3.Header
- 4.Footer
- 5.Pages
+ 1.Navigation
+ 2.Header
+ 3.Footer
+ 4.Pages
      i.
- 6.Modules
- 7.Forms
- 8.Sprites
+ 5.Modules
+ 6.Forms
+ 7.Sprites
  *.User Defined
 
 ----------------------------------------------------------------*/
@@ -31,7 +30,7 @@ If you have any questions, Don't be shy. Send me a line!
 /* grid container
 ============================================== */
 .container-20 {
-  width: 1010px;
+  max-width: 1000px;
   margin: 0 auto;
   position: relative; }
   .container-20:after {
@@ -63,70 +62,91 @@ If you have any questions, Don't be shy. Send me a line!
 .grid-18,
 .grid-19,
 .grid-20 {
-  margin: 0 "10px";
+  margin: 0 10px;
   padding: 0;
   display: inline;
   float: left; }
+  .grid-1.interior-margins,
+  .grid-2.interior-margins,
+  .grid-3.interior-margins,
+  .grid-4.interior-margins,
+  .grid-5.interior-margins,
+  .grid-6.interior-margins,
+  .grid-7.interior-margins,
+  .grid-8.interior-margins,
+  .grid-9.interior-margins,
+  .grid-10.interior-margins,
+  .grid-11.interior-margins,
+  .grid-12.interior-margins,
+  .grid-13.interior-margins,
+  .grid-14.interior-margins,
+  .grid-15.interior-margins,
+  .grid-16.interior-margins,
+  .grid-17.interior-margins,
+  .grid-18.interior-margins,
+  .grid-19.interior-margins,
+  .grid-20.interior-margins {
+    margin: 0; }
 
 .grid-1 {
-  width: 30.5px; }
+  width: 3%; }
 
 .grid-2 {
-  width: 81px; }
+  width: 8%; }
 
 .grid-3 {
-  width: 131.5px; }
+  width: 13%; }
 
 .grid-4 {
-  width: 182px; }
+  width: 18%; }
 
 .grid-5 {
-  width: 232.5px; }
+  width: 23%; }
 
 .grid-6 {
-  width: 283px; }
+  width: 28%; }
 
 .grid-7 {
-  width: 333.5px; }
+  width: 33%; }
 
 .grid-8 {
-  width: 384px; }
+  width: 38%; }
 
 .grid-9 {
-  width: 434.5px; }
+  width: 43%; }
 
 .grid-10 {
-  width: 485px; }
+  width: 48%; }
 
 .grid-11 {
-  width: 535.5px; }
+  width: 53%; }
 
 .grid-12 {
-  width: 586px; }
+  width: 58%; }
 
 .grid-13 {
-  width: 636.5px; }
+  width: 63%; }
 
 .grid-14 {
-  width: 687px; }
+  width: 68%; }
 
 .grid-15 {
-  width: 737.5px; }
+  width: 73%; }
 
 .grid-16 {
-  width: 788px; }
+  width: 78%; }
 
 .grid-17 {
-  width: 838.5px; }
+  width: 83%; }
 
 .grid-18 {
-  width: 889px; }
+  width: 88%; }
 
 .grid-19 {
-  width: 939.5px; }
+  width: 93%; }
 
 .grid-20 {
-  width: 990px; }
+  width: 98%; }
 
 /*
  * media queries included
@@ -144,14 +164,12 @@ If you have any questions, Don't be shy. Send me a line!
   color: #fff;
   text-shadow: none; }
 
-/* 1.`layout
-============================================== */
 html,
 body {
   height: 100%;
   margin: 0; }
 
-/* 2.`navigation
+/* 1.`navigation
 ============================================== */
 nav ul:after {
   content: ".";
@@ -162,14 +180,20 @@ nav ul:after {
 nav li {
   float: left; }
 
-/* 3.`header
+/* 2.`header
 ============================================== */
-/* 4.`footer
+/* 3.`footer
 ============================================== */
 #footer {
   margin: 0; }
 
-/* 8.`sprites
+/* 4.`pages
+============================================== */
+/* 5.`modules
+============================================== */
+/* 6.`forms
+============================================== */
+/* 7.`sprites
 ============================================== */
 .icon,
 .sprite {

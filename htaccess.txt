@@ -1,0 +1,11 @@
+RedirectMatch 403 /\.svn.*$
+RedirectMatch 403 /\.git.*$
+
+<Files mysql_db_bond.sql>
+Deny from all
+</Files>
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/?$1 [L]
