@@ -1,16 +1,16 @@
 
 /* grid container
 ============================================== */
-$cols: 20;
-$margin: 10;
-$layout-width: 1020;
-$col-width: (($layout-width) / $cols) - $margin * 2;
+$cols: 18;
+$margin: 5;
+$layout-width: 1260;
+$col-width: (($layout-width) / $cols);
 
 
 .container-#{$cols} {
   @include group;
-//  width: $layout-width + px;
-  max-width: 1000px;
+  width: $layout-width + px;
+//  max-width: 1000px;
   margin: 0 auto;
   position: relative;
 }
@@ -35,22 +35,15 @@ $col-width: (($layout-width) / $cols) - $margin * 2;
 .grid-15,
 .grid-16,
 .grid-17,
-.grid-18,
-.grid-19,
-.grid-20,
- {
-    margin: 0 $margin + px;
+.grid-18 {
+    margin: 0 $margin / $layout-width * 100%;
     padding: 0;
     display: inline;
     float: left;
-
-    &.interior-margins {
-      margin: 0;
-    }
 }
 
 @for $i from 1 through $cols {
     .grid-#{$i} {
-        width: (($col_width * $i) + ($margin * 2 * ($i - 1)))*0.1%;
+        width: ( ($col_width * $i) - ($margin * 2) ) / $layout-width * 100%;
     }
 }
