@@ -1,4 +1,5 @@
-<nav id="main-nav">
+<nav id="global">
 	<ul>
+
 	</ul>
 </nav>

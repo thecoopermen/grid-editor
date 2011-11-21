@@ -1,0 +1,116 @@
+/*
+Title:	Master styles for screen media
+Author: Jordan Cooperman, jordan@vectormediagroup.com
+Year: 2011
+
+Welcome, thou wanderer of the interwebs!
+If you have any questions, Don't be shy. Send me a line!
+================================================================
+----------------------------------------------------------------
+
+[Table of contents]
+
+ 0.General
+ 1.Navigation
+ 2.Layout
+ 4.Pages
+ 5.Modules
+ 6.Extensible Classes
+ 6.Forms
+ 7.Sprites
+
+----------------------------------------------------------------*/
+
+$tiny: 5px;
+$small: 10px;
+$medium: 20px;
+$large: 30px;
+$huge: 40px;
+$massive: 50px;
+$gigantic: 60px;
+
+
+@import "partials/reset";
+@import "partials/fonts";
+@import "partials/mixins";
+@import "partials/type";
+@import "partials/grid";
+
+/*
+ * media queries included
+ * at end of document
+ */
+
+
+/* 0.`General
+============================================== */
+
+::-moz-selection { background: #44a1dd; color: #fff; text-shadow: none; }
+::selection { background: #44a1dd; color: #fff; text-shadow: none; }
+
+html,
+body {
+  height : 100%;
+  margin : 0;
+}
+
+
+/* 1.`Navigation
+============================================== */
+
+nav#site {
+
+}
+
+/* 2.`Layout
+============================================== */
+
+#header {
+
+}
+
+#footer {
+
+}
+
+
+/* 3.`Pages
+============================================== */
+
+
+/* 4.`Modules
+============================================== */
+
+
+/* 5.`Forms
+============================================== */
+
+
+/* 6.`Extensible Classes
+============================================== */
+
+/*
+ * Display
+ */
+
+.inline-block { display: inline-block; *display: inline;}
+
+
+/* 7.`Sprites
+============================================== */
+
+.icon,
+.sprite {
+  text-indent : -9999px;
+  line-height : 0;
+  font-size   : 0;
+  overflow    : hidden;
+  display     : block;
+}
+
+.sprite { background-image : url('../img/-sprite-images.png'); }
+.icon { background-image   : url('../img/-sprite-icons.png'); }
+
+/* media queries */
+
+@import "partials/media";

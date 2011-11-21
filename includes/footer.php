@@ -1,4 +1,5 @@
-<div id="footer-wrap">
-    <ul id="footer" class="navigation">
-    </ul>
+<div class="site-footer">
+	<div class="container-">
+
+	</div>
 </div>

@@ -1,11 +1,16 @@
 
-/* grid container
+/* GRID
 ============================================== */
+
 $cols: 18;
 $margin: 5;
 $layout-width: 1260;
 $col-width: (($layout-width) / $cols);
 
+
+/*
+ * CONTAINER
+ */
 
 .container-#{$cols} {
   @include group;
@@ -15,8 +20,10 @@ $col-width: (($layout-width) / $cols);
   position: relative;
 }
 
-/* grid divisions
-============================================== */
+
+/*
+ * COLUMNS
+ */
 
 .grid-1,
 .grid-2,

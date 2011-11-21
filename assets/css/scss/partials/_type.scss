@@ -1,0 +1,56 @@
+html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+.regular { -webkit-font-smoothing: antialiased; }
+.bold { -webkit-font-smoothing: antialiased; }
+.bold-italic { -webkit-font-smoothing: antialiased; }
+.helvetica {
+    font-family: "Helvetica Neue", "Helvetica", "Arial";
+    font-weight: normal;
+    &.bold { font-weight: bold; }
+}
+
+$line: 24;
+$font-size: 16;
+$em: $font-size * 1;
+
+body {
+    font-family: "Helvetica neue", "Helvetica", "Arial", "Sans-serif";
+	font-size: $font-size / 16 * 1em;
+	line-height: #{$line / $em}em;
+}
+
+.tiny {
+	/* 12px / 20px */
+	font-size: #{($font-size*0.75) / $em}em;
+	line-height: ($line*0.83333333333333) / ($font-size*0.75) * 1em;
+}
+
+.small {
+	/* 14px / 20px */
+	font-size: #{($font-size*0.875) / $em}em;
+	line-height: ($line*0.875) / ($font-size*0.875) * 1em;
+}
+
+.normal{
+	/* 16px / 24px */
+}
+
+.large {
+	/* 24px / 32px */
+	font-size: #{($font-size*1.5) / $em}em;
+	line-height: ($line*1.33333333333333) / ($font-size*1.5) * 1em;
+}
+
+.huge {
+    /* 36px / 42px */
+	font-size: #{($font-size*2.25) / $em}em;
+	line-height: ($line*1.75) / ($font-size*2.25) * 1em;
+}
+
+.massive {
+}
+
+.gigantic {
+}
+
+.tight-line-height { line-height: 1em; }

@@ -1,16 +1,18 @@
 <? $thisPage = ''; ?>
 
 <!DOCTYPE html>
+<html class="no-js">
 	<? include('includes/head.php'); ?>
 
 	<body>
-		<div id="page-wrap">
-			<? include('includes/header.php'); ?>
 
+		<? include('includes/header.php'); ?>
 
-
-			<? include('includes/footer.php'); ?>
+		<div class="site-content">
 		</div>
+
+		<? include('includes/footer.php'); ?>
+
 	</body>
 
 </html>
