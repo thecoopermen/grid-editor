@@ -9,6 +9,9 @@
 		<? include('includes/header.php'); ?>
 
 		<div class="site-content">
+			<div class="grid-container">
+
+			</div>
 		</div>
 
 		<? include('includes/footer.php'); ?>

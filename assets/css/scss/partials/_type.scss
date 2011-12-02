@@ -1,8 +1,4 @@
-html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-.regular { -webkit-font-smoothing: antialiased; }
-.bold { -webkit-font-smoothing: antialiased; }
-.bold-italic { -webkit-font-smoothing: antialiased; }
 .helvetica {
     font-family: "Helvetica Neue", "Helvetica", "Arial";
     font-weight: normal;
@@ -13,8 +9,10 @@ $line: 24;
 $font-size: 16;
 $em: $font-size * 1;
 
+html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
 body {
-    font-family: "Helvetica neue", "Helvetica", "Arial", "Sans-serif";
+    font-family: 'Helvetica neue', 'Helvetica', 'Arial', 'sans-serif';
 	font-size: $font-size / 16 * 1em;
 	line-height: #{$line / $em}em;
 }

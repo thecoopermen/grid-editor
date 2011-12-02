@@ -29,11 +29,27 @@ $huge: 40px;
 $massive: 50px;
 $gigantic: 60px;
 
+/* 0.`General
+============================================== */
 
-@import "partials/reset";
-@import "partials/fonts";
 @import "partials/mixins";
+
+/*
+ * FONTS
+ */
+
+@import "partials/fonts";
+
+/*
+ * TYPE
+ */
+
 @import "partials/type";
+
+/*
+ * GRID
+ */
+
 @import "partials/grid";
 
 /*
@@ -41,17 +57,13 @@ $gigantic: 60px;
  * at end of document
  */
 
-
-/* 0.`General
-============================================== */
-
 ::-moz-selection { background: #44a1dd; color: #fff; text-shadow: none; }
 ::selection { background: #44a1dd; color: #fff; text-shadow: none; }
 
 html,
 body {
-  height : 100%;
-  margin : 0;
+    height : 100%;
+    margin : 0;
 }
 
 
@@ -65,11 +77,11 @@ nav#site {
 /* 2.`Layout
 ============================================== */
 
-#header {
+.site-header {
 
 }
 
-#footer {
+.site-footer {
 
 }
 
@@ -93,8 +105,10 @@ nav#site {
  * Display
  */
 
-.inline-block { display: inline-block; *display: inline;}
+.left { float: left; }
+.right { float: right; }
 
+.inline-block { display: inline-block; *display: inline;}
 
 /* 7.`Sprites
 ============================================== */
@@ -108,8 +122,8 @@ nav#site {
   display     : block;
 }
 
-.sprite { background-image : url('../img/-sprite-images.png'); }
-.icon { background-image   : url('../img/-sprite-icons.png'); }
+.sprite { background-image : url('/assets/img/site/-sprite-images.png'); }
+.icon { background-image   : url('/assets/img/site/-sprite-icons.png'); }
 
 /* media queries */
 

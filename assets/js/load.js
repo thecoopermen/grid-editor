@@ -1,11 +1,11 @@
 Modernizr.load([
-  {
-    load: "//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js",
-    complete: function () {
-      if ( !window.jQuery ) {
-        Modernizr.load("assets/js/jquery-1.6.4.min.js");
-      }
-    }
-  },
-  "assets/js/init.js"
+    {
+        load: '//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js',
+        complete: function () {
+            if ( !window.jQuery ) {
+                Modernizr.load('/assets/js/jquery-1.6.4.min.js');
+            }
+        }
+    },
+    '/assets/js/init.js'
 ]);

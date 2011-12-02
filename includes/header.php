@@ -1,5 +1,5 @@
 <div class="site-header">
-	<div class="container-">
+	<div class="grid-container">
 
 	</div>
 </div>
