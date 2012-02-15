@@ -6,8 +6,7 @@ CSS, from the book: "Handcrafted CSS".
 
 /* PNG fix */
 
-*html .sprite,
-*html .icon { /* for IE<6 */
+*html .sprite { /* for IE<6 */
 	filter: progid:DXImageTransform.Microsoft.
 	AlphaImageLoader(enabled=true, sizingMethod=scale
 	src='img/image.png'); background-image: none; background-

@@ -1,5 +1,7 @@
-
+// position
 @mixin group {
+    min-height: 1px;
+
     &:after {
     content: ".";
     display: block;
@@ -9,93 +11,66 @@
     }
 }
 
-@mixin inline-block {
+@mixin inline-block( $vertical-align: middle ) {
     display: inline-block;
     *display: inline;
     *zoom: 1;
+    vertical-align: $vertical-align;
 }
 
-@mixin padding( $magnitude, $top: 1, $right: 1, $bottom: 1, $left: 1 ) {
-    padding: $magnitude;
-    @if ( $top == 0 ) { padding-top: 0; }
-    @if ( $right == 0 ) { padding-right: 0; }
-    @if ( $bottom == 0 ) { padding-bottom: 0; }
-    @if ( $left == 0 ) { padding-left: 0; }
-    @if ( $top != 1 ) { padding-top: $top; }
-    @if ( $right != 1 ) { padding-right: $right; }
-    @if ( $bottom != 1 ) { padding-bottom: $bottom; }
-    @if ( $left != 1 ) { padding-left: $left; }
-}
 
-@mixin margin( $magnitude, $top: 1, $right: 1, $bottom: 1, $left: 1 ) {
-    margin: $magnitude;
-    @if ( $top == 0 ) { margin-top: 0; }
-    @if ( $right == 0 ) { margin-right: 0; }
-    @if ( $bottom == 0 ) { margin-bottom: 0; }
-    @if ( $left == 0 ) { margin-left: 0; }
-    @if ( $top != 1 ) { margin-top: $top; }
-    @if ( $right != 1 ) { margin-right: $right; }
-    @if ( $bottom != 1 ) { margin-bottom: $bottom; }
-    @if ( $left != 1 ) { margin-left: $left; }
-}
-
-@mixin text-hidden {
-    text-indent: 0;
-    line-height: 0;
-    font-size: 0;
-}
-
-@mixin border-vertical-dotted($position) {
-    background-image: url("../img/border-vertical-dotted.png");
-    background-repeat: repeat-y;
-    background-position: $position top;
-}
-
-@mixin border-horizontal-dotted($position) {
-    background-image: url("../img/border-horizontal-dotted.png");
-    background-repeat: repeat-x;
-    background-position: left $position;
-}
-
-@mixin triangle-vertical($size: 7px, $position: "bottom", $color: #999, $rgba: "") {
-    @include text-hidden;
-    position     : absolute;
-    height       : 0;
-    width        : 0;
-    border-style : solid;
-    border-width : $size;
+// triangle
+@mixin triangle( $size: 7px, $position: "bottom", $color: #999 ) {
+    height: 0;
+    width: 0;
+    border-style: solid;
+    border-width: $size;
     @if $position == "bottom" {
         border-color : transparent transparent $color transparent;
     }
     @if $position == "top" {
         border-color :  $color transparent transparent transparent;
     }
-    @if $rgba != "" {
-        border-color : transparent transparent $rgba transparent;
+    @if $position == "left" {
+        border-color : transparent transparent transparent $color;
     }
-    left         : 50%;
-    margin-left  : $size * -1;
-    #{$position} : 0;
-
+    @if $position == "right" {
+        border-color : transparent $color transparent transparent;
+    }
 }
 
-@mixin triangle-angled($size: 4px, $position: "bottom", $color: #333, $rgba: "") {
-    @include text-hidden;
-    position     : absolute;
-    height       : 0;
-    width        : 0;
-    border-style : solid;
-    border-width : $size;
-    border-color : $color transparent transparent $color;
-    @if $rgba != "" {
-        border-color : $rgba transparent transparent $rgba;
-    }
-    left         : 50%;
-    margin-left  : $size * -2;
-    #{$position} : $size * -2;
+
+// dotted borders
+@mixin dotted-y($position) {
+    background-image: url("/assets/img/site/dotted-y.png");
+    background-repeat: repeat-y;
+    background-position: $position top;
 }
 
-@mixin rounded($radius: 5px) {
+@mixin dotted-x( $position ) {
+    background-image: url("/assets/img/site/dotted-x.png");
+    background-repeat: repeat-x;
+    background-position: left $position;
+}
+
+
+// css3
+@mixin box-sizing( $property: "border-box" ) {
+    -webkit-box-sizing: $property;
+    -moz-box-sizing: $property;
+    box-sizing: $property;
+}
+
+@mixin linear-gradient($start-color: #222, $end-color: #000 ) {
+   background-color: $end-color;
+   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($start-color), to($end-color));
+   background-image: -webkit-linear-gradient(top, $start-color, $end-color);
+   background-image: -moz-linear-gradient(top, $start-color, $end-color);
+   background-image: -ms-linear-gradient(top, $start-color, $end-color);
+   background-image: -o-linear-gradient(top, $start-color, $end-color);
+}
+
+@mixin rounded( $radius: 5px ) {
   -moz-border-radius: $radius;
   border-radius: $radius;
 }
@@ -124,8 +99,9 @@
     box-shadow: inset $horizontal $vertical $magnitude $color;
 }
 
-@mixin drop-shadow($horizontal: 5px, $vertical: 5px, $magnitude: 5px, $color: #888) {
+@mixin box-shadow($horizontal: 5px, $vertical: 5px, $magnitude: 5px, $color: #888) {
     -moz-box-shadow: $horizontal $vertical $magnitude $color;
     -webkit-box-shadow: $horizontal $vertical $magnitude $color;
     box-shadow: $horizontal $vertical $magnitude $color;
 }
+

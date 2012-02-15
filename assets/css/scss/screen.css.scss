@@ -1,130 +1,110 @@
-/*
-Title:	Master styles for screen media
-Author: Jordan Cooperman, jordan@vectormediagroup.com
-Year: 2011
+/* ----------------------------------------------------------------
 
-Welcome, thou wanderer of the interwebs!
-If you have any questions, Don't be shy. Send me a line!
-================================================================
+Title: Master styles for screen media
+Author: Jordan Cooperman, jordan@vectormediagroup.com
+Year: 2012
+
 ----------------------------------------------------------------
 
-[Table of contents]
+WELCOME
 
- 0.General
- 1.Navigation
- 2.Layout
- 4.Pages
- 5.Modules
- 6.Extensible Classes
- 6.Forms
- 7.Sprites
+Oh, I didn't see you there friend.
 
-----------------------------------------------------------------*/
+Please, have a look around, I hope you enjoy your stay.
 
-$tiny: 5px;
-$small: 10px;
-$medium: 20px;
-$large: 30px;
-$huge: 40px;
-$massive: 50px;
-$gigantic: 60px;
+----------------------------------------------------------------
+
+[Table of contents] - A map of our grounds.
+
+    0.General
+		a.base elements
+		b.base classes
+    2.Layout
+    3.Extensible Classes
+    4.Sprites
+
+    *.Pages, modules and media queries at the end of this file
+
+----------------------------------------------------------------
+
+[Prefixes] - Some patterns that you may observe.
+
+    g: global
+    s: state
+
+---------------------------------------------------------------- */
+
 
 /* 0.`General
-============================================== */
+---------------------------------------------- */
 
 @import "partials/mixins";
 
-/*
- * FONTS
- */
-
-@import "partials/fonts";
-
-/*
- * TYPE
- */
-
 @import "partials/type";
-
-/*
- * GRID
- */
 
 @import "partials/grid";
 
-/*
- * media queries included
- * at end of document
- */
+
+/* a.`base elements
+------------------------- */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+	-moz-font-feature-settings: "liga=0";
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+a {
+	display: block;
+}
+
+p {
+	margin-top: 0;
+	
+	a {
+		display: inline;
+	}
+}
 
 ::-moz-selection { background: #44a1dd; color: #fff; text-shadow: none; }
 ::selection { background: #44a1dd; color: #fff; text-shadow: none; }
 
-html,
-body {
-    height : 100%;
-    margin : 0;
-}
-
-
-/* 1.`Navigation
-============================================== */
-
-nav#site {
-
-}
 
 /* 2.`Layout
-============================================== */
+---------------------------------------------- */
 
-.site-header {
-
-}
-
-.site-footer {
+#g-header {
 
 }
 
+#g-content {
 
-/* 3.`Pages
-============================================== */
+}
 
+#g-footer {
 
-/* 4.`Modules
-============================================== */
+}
 
-
-/* 5.`Forms
-============================================== */
-
-
-/* 6.`Extensible Classes
-============================================== */
-
-/*
- * Display
- */
+/* 3.`Extensible Classes
+---------------------------------------------- */
 
 .left { float: left; }
 .right { float: right; }
 
-.inline-block { display: inline-block; *display: inline;}
-
-/* 7.`Sprites
-============================================== */
-
-.icon,
-.sprite {
-  text-indent : -9999px;
-  line-height : 0;
-  font-size   : 0;
-  overflow    : hidden;
-  display     : block;
-}
-
-.sprite { background-image : url('/assets/img/site/-sprite-images.png'); }
-.icon { background-image   : url('/assets/img/site/-sprite-icons.png'); }
-
-/* media queries */
-
+@import "partials/sprites";
+@import "partials/modules";
+@import "partials/pages";
 @import "partials/media";

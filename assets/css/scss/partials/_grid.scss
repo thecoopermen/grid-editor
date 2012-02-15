@@ -1,48 +1,59 @@
-$cols: 10;
-$margin: 20;
-$layout-width: 900 + $margin * 2;
-$col-width: $layout-width / $cols;
-$percent-margin: $margin / $layout-width;
+
+// edit these values
+
+$cols: 12;
+$margin: 5;
+$layout-width: 950; 
 
 
-/*
- * CONTAINER
- */
+// do not edit these values
 
-.grid-container {
-  @include group;
-  width: $layout-width + px;
+$layout-margin-width: $layout-width + $margin * 2;
+
+$col-width: $layout-margin-width / $cols;
+
+$percent-margin: $margin / $layout-margin-width;
+
+
+// Grid Container
+
+.wrapper {
+  width: $layout-margin-width + px;
   margin: 0 auto;
-  position: relative;
+
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
 }
 
 
-/*
- * COLUMNS
- */
-
-.grid-1,
-.grid-2,
-.grid-3,
-.grid-4,
-.grid-5,
-.grid-6,
-.grid-7,
-.grid-8,
-.grid-9,
-.grid-10,
-.grid-11,
-.grid-12 {
-    margin: 0 $percent-margin * 100%;
-    padding: 0;
-    display: inline;
-    float: left;
-}
+// Grid Columns
 
 @for $i from 1 through $cols {
-    .grid-#{$i} {
-        width: ( ($col_width * $i / $layout-width) - 2 * $percent-margin) * 100%;
-        height: 1000px;
-        background-color: #ccc;
-    }
+  .grid-#{$i} {
+    width: ( ($col_width * $i / $layout-margin-width) - 2 * $percent-margin) * 100%;
+    padding: 0;
+    margin: 0 $percent-margin * 100%;
+    display: inline;
+    float: left;
+    background-color: #000;
+    height: 1000px;
+  }
 }
+
+// Or if you'd prefer a mixin for more semantic markup
+
+@mixin grid($width, $marginRight: 0)  {
+	width: #{$width}px;
+	padding-left: 0;
+	padding-right: 0;
+	float: left;
+	@if $marginRight != '' {
+		margin-right: #{$marginRight}px;
+	}
+}
+

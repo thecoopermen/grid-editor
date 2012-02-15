@@ -1,54 +1,26 @@
 
 .helvetica {
-    font-family: "Helvetica Neue", "Helvetica", "Arial";
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-weight: normal;
-    &.bold { font-weight: bold; }
+    -webkit-font-smoothing: antialiased;
 }
 
 $line: 24;
 $font-size: 16;
 $em: $font-size * 1;
+$base: $line / $em;
 
 html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
 body {
-    font-family: 'Helvetica neue', 'Helvetica', 'Arial', 'sans-serif';
+	@extend .helvetica;
 	font-size: $font-size / 16 * 1em;
 	line-height: #{$line / $em}em;
+	-moz-font-feature-settings: "liga=0"; // avoid using ligatures with firefox, they are buggy
 }
 
-.tiny {
-	/* 12px / 20px */
-	font-size: #{($font-size*0.75) / $em}em;
-	line-height: ($line*0.83333333333333) / ($font-size*0.75) * 1em;
+// provide px units, and get em units 
+@mixin font($newFont:16, $newLine:24) {
+    font-size: #{$newFont / $em}em;
+    line-height: $newLine / $newFont * 1em;
 }
-
-.small {
-	/* 14px / 20px */
-	font-size: #{($font-size*0.875) / $em}em;
-	line-height: ($line*0.875) / ($font-size*0.875) * 1em;
-}
-
-.normal{
-	/* 16px / 24px */
-}
-
-.large {
-	/* 24px / 32px */
-	font-size: #{($font-size*1.5) / $em}em;
-	line-height: ($line*1.33333333333333) / ($font-size*1.5) * 1em;
-}
-
-.huge {
-    /* 36px / 42px */
-	font-size: #{($font-size*2.25) / $em}em;
-	line-height: ($line*1.75) / ($font-size*2.25) * 1em;
-}
-
-.massive {
-}
-
-.gigantic {
-}
-
-.tight-line-height { line-height: 1em; }
