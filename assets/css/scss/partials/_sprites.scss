@@ -17,34 +17,23 @@
 
 // Add this class in your markup, in addition to another sprite 
 // class that defines background-position, height and width
-
 .sprite {
     @include inline-block( top );
     overflow: hidden;
     line-height: 0;
-	font-size: 0;
-	line-height: 0;
     text-indent: -9999px;
-	background-image: url('/assets/img/site/cohen-and-steers-sprite-icons.png');
 }
 
-
-// Or use a mixin for more semantic markup
-
-@mixin sprite {
-    @include inline-block( top );
-    overflow: hidden;
-    line-height: 0;
-	font-size: 0;
-	line-height: 0;
-    text-indent: -9999px;
-	background-image: url('/assets/img/site/cohen-and-steers-sprite-icons.png');
+.icon {
+	@extend .sprite;
+	background-image: url('../img/site/grid-sprite-icons.png');
 }
 
+.icon-grid {
+	background-position: 0px 0px;
+	width: 14px;
+	height: 14px;
+}
 
 /* 1.`Icon Sprites
----------------------------------------------- */
-
-
-/* 2.`Assorted Sprites
 ---------------------------------------------- */

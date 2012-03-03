@@ -1,34 +1,74 @@
-
 // edit these values
-
 $cols: 12;
 $margin: 5;
 $layout-width: 950; 
 
-
 // do not edit these values
-
 $layout-margin-width: $layout-width + $margin * 2;
-
 $col-width: $layout-margin-width / $cols;
-
 $percent-margin: $margin / $layout-margin-width;
 
 
-// Grid Container
+#grid-editor {
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: $base/4 $base/2;
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #d5d5d5;
+	@include linear-gradient(#fff, #ededed);
+	@include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 0.1));
+
+	label {
+		margin-right: $base/2;
+		@include font(14, 14);
+		color: #adadad;
+	}
+
+	input {
+		width: 4em;
+		padding: $base/4 $base/4;
+		margin-right: $base*1.5;
+		@include font(13, 18);
+		border: 1px solid #e6e6e6;
+		color: #252525;
+		@include rounded(2px);
+		@include box-shadow(0, 1px, 0, rgba(255, 255, 255, 0.4));
+		@include inner-shadow(2px, 2px, 7px, rgba(0, 0, 0, 0.05));
+
+		&:focus {
+			outline: 0;
+		}
+	}
+}
+
+#new-grid-element {
+	margin-right: $base*1.5;
+
+	.icon {
+		margin-right: $base/2;
+	}
+}
 
 .wrapper {
   width: $layout-margin-width + px;
   margin: 0 auto;
-
-  &:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-  }
+	margin-top: $base;
 }
+
+.grid {
+	position: relative;
+}
+
+.grid-element-config {
+
+}
+
+
+// Grid Container
+
 
 
 // Grid Columns

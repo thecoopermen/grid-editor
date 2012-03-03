@@ -61,6 +61,7 @@ html {
 body {
 	min-height: 100%;
 	-moz-font-feature-settings: "liga=0";
+	padding-top: $base*1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -77,6 +78,10 @@ p {
 	a {
 		display: inline;
 	}
+}
+
+img {
+	max-width: 100%;
 }
 
 ::-moz-selection { background: #44a1dd; color: #fff; text-shadow: none; }
@@ -101,8 +106,50 @@ p {
 /* 3.`Extensible Classes
 ---------------------------------------------- */
 
+.group {
+    min-height: 1px;
+
+    &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    }
+}
+
 .left { float: left; }
 .right { float: right; }
+
+.button {
+	padding: $base/3 $base/1.5;
+	border: 1px solid #d1d1d1;
+	@include rounded(2px);
+	@include linear-gradient(#fff, #e8e8e8);
+	@include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 0.08));
+	@include font(14, 14);
+	text-decoration: none;
+	color: #878787;
+
+	&:hover {
+		color: #666;
+		border: 1px solid #bbb;
+
+		.icon {
+			opacity: 1;
+		}
+	}
+
+	&:active {
+		margin-top: 1px;
+		margin-bottom: -1px;
+		@include box-shadow(0, 1px, 0, rgba(255, 255, 255, 0.4));
+	}
+
+	.icon {
+		opacity: 0.8;
+	}
+}
 
 @import "partials/sprites";
 @import "partials/modules";
