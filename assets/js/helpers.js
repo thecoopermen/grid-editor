@@ -120,16 +120,3 @@
 			if (labels) var labels = createElements( 'label');
 			return inputs;
 		}
-
-		document.elements.addClass = function(newClassName) {
-			var className = this.getAttribute('class');
-			if (typeof newClassName === 'string') {
-				this.className = newClassName + className;
-				return this;
-			}
-		};
-
-		document.elements.removeClass = function(classNameToRemove) {
-			this.className = this.className.replace( /(?:^|\s)classNameToRemove(?!\S)/ , '' );
-			return this;
-		};

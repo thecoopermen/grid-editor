@@ -42,9 +42,6 @@ Please, have a look around, I hope you enjoy your stay.
 
 @import "partials/type";
 
-@import "partials/grid";
-
-
 /* a.`base elements
 ------------------------- */
 
@@ -78,6 +75,10 @@ p {
 	a {
 		display: inline;
 	}
+}
+
+li {
+	list-style: none;
 }
 
 img {
@@ -121,6 +122,22 @@ img {
 .left { float: left; }
 .right { float: right; }
 
+.text {
+	width: 4em;
+	padding: $base/4 $base/4;
+	margin-right: $base*1.5;
+	@include font(13, 18);
+	border: 1px solid #e6e6e6;
+	color: #252525;
+	@include rounded(2px);
+	@include box-shadow(0, 1px, 0, rgba(255, 255, 255, 0.4));
+	@include inner-shadow(2px, 2px, 7px, rgba(0, 0, 0, 0.05));
+
+	&:focus {
+		outline: 0;
+	}
+}
+
 .button {
 	padding: $base/3 $base/1.5;
 	border: 1px solid #d1d1d1;
@@ -152,6 +169,4 @@ img {
 }
 
 @import "partials/sprites";
-@import "partials/modules";
-@import "partials/pages";
-@import "partials/media";
+@import "partials/grid";

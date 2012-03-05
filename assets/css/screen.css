@@ -49,6 +49,149 @@ body {
   line-height: 1.5em;
   -moz-font-feature-settings: "liga=0"; }
 
+/* a.`base elements
+------------------------- */
+html,
+body {
+  height: 100%;
+  margin: 0; }
+
+html {
+  height: 100%; }
+
+body {
+  min-height: 100%;
+  -moz-font-feature-settings: "liga=0";
+  padding-top: 2.25em; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; }
+
+a {
+  display: block; }
+
+p {
+  margin-top: 0; }
+  p a {
+    display: inline; }
+
+li {
+  list-style: none; }
+
+img {
+  max-width: 100%; }
+
+::-moz-selection {
+  background: #44a1dd;
+  color: #fff;
+  text-shadow: none; }
+
+::selection {
+  background: #44a1dd;
+  color: #fff;
+  text-shadow: none; }
+
+/* 2.`Layout
+---------------------------------------------- */
+/* 3.`Extensible Classes
+---------------------------------------------- */
+.group {
+  min-height: 1px; }
+  .group:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.text {
+  width: 4em;
+  padding: 0.375em 0.375em;
+  margin-right: 2.25em;
+  font-size: 0.813em;
+  line-height: 1.385em;
+  border: 1px solid #e6e6e6;
+  color: #252525;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+  -moz-box-shadow: inset 2px 2px 7px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: inset 2px 2px 7px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 2px 2px 7px rgba(0, 0, 0, 0.05); }
+  .text:focus {
+    outline: 0; }
+
+.button {
+  padding: 0.5em 1em;
+  border: 1px solid #d1d1d1;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-color: #e8e8e8;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#e8e8e8));
+  background-image: -webkit-linear-gradient(top, white, #e8e8e8);
+  background-image: -moz-linear-gradient(top, white, #e8e8e8);
+  background-image: -ms-linear-gradient(top, white, #e8e8e8);
+  background-image: -o-linear-gradient(top, white, #e8e8e8);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  font-size: 0.875em;
+  line-height: 1em;
+  text-decoration: none;
+  color: #878787; }
+  .button:hover {
+    color: #666;
+    border: 1px solid #bbb; }
+    .button:hover .icon {
+      opacity: 1; }
+  .button:active {
+    margin-top: 1px;
+    margin-bottom: -1px;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+  .button .icon {
+    opacity: 0.8; }
+
+/* a.Sprites
+----------------------------------------------------------------
+
+[Table of contents] - a map of our sprites.
+
+    0.General
+    1.Icons
+    2.Assorted
+
+---------------------------------------------------------------- */
+/* 0.`General Sprite Styles
+---------------------------------------------- */
+.sprite, .icon {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: top;
+  overflow: hidden;
+  line-height: 0;
+  text-indent: -9999px; }
+
+.icon {
+  background-image: url("../img/site/grid-sprite-icons.png"); }
+
+.icon-grid {
+  background-position: 0px 0px;
+  width: 14px;
+  height: 14px; }
+
+/* 1.`Icon Sprites
+---------------------------------------------- */
 #grid-editor {
   position: fixed;
   z-index: 100;
@@ -72,24 +215,6 @@ body {
     font-size: 0.875em;
     line-height: 1em;
     color: #adadad; }
-  #grid-editor input {
-    width: 4em;
-    padding: 0.375em 0.375em;
-    margin-right: 2.25em;
-    font-size: 0.813em;
-    line-height: 1.385em;
-    border: 1px solid #e6e6e6;
-    color: #252525;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
-    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
-    -moz-box-shadow: inset 2px 2px 7px rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: inset 2px 2px 7px rgba(0, 0, 0, 0.05);
-    box-shadow: inset 2px 2px 7px rgba(0, 0, 0, 0.05); }
-    #grid-editor input:focus {
-      outline: 0; }
 
 #new-grid-element {
   margin-right: 2.25em; }
@@ -103,6 +228,23 @@ body {
 
 .grid {
   position: relative; }
+  .grid.s-hover .grid-element-config-link {
+    display: block; }
+  .grid.s-hover .grid-element-config-overlay {
+    display: none; }
+    .grid.s-hover .grid-element-config-overlay.s-active {
+      display: block; }
+
+.grid-element-config {
+  position: absolute;
+  top: 0.75em;
+  right: 0.75em; }
+
+.grid-element-config-link {
+  display: none; }
+
+.grid-element-config-overlay {
+  display: none; }
 
 .grid-1 {
   width: 7.292%;
@@ -211,125 +353,3 @@ body {
   float: left;
   background-color: #000;
   height: 1000px; }
-
-/* a.`base elements
-------------------------- */
-html,
-body {
-  height: 100%;
-  margin: 0; }
-
-html {
-  height: 100%; }
-
-body {
-  min-height: 100%;
-  -moz-font-feature-settings: "liga=0";
-  padding-top: 2.25em; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0; }
-
-a {
-  display: block; }
-
-p {
-  margin-top: 0; }
-  p a {
-    display: inline; }
-
-img {
-  max-width: 100%; }
-
-::-moz-selection {
-  background: #44a1dd;
-  color: #fff;
-  text-shadow: none; }
-
-::selection {
-  background: #44a1dd;
-  color: #fff;
-  text-shadow: none; }
-
-/* 2.`Layout
----------------------------------------------- */
-/* 3.`Extensible Classes
----------------------------------------------- */
-.group {
-  min-height: 1px; }
-  .group:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden; }
-
-.left {
-  float: left; }
-
-.right {
-  float: right; }
-
-.button {
-  padding: 0.5em 1em;
-  border: 1px solid #d1d1d1;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  background-color: #e8e8e8;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#e8e8e8));
-  background-image: -webkit-linear-gradient(top, white, #e8e8e8);
-  background-image: -moz-linear-gradient(top, white, #e8e8e8);
-  background-image: -ms-linear-gradient(top, white, #e8e8e8);
-  background-image: -o-linear-gradient(top, white, #e8e8e8);
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-  font-size: 0.875em;
-  line-height: 1em;
-  text-decoration: none;
-  color: #878787; }
-  .button:hover {
-    color: #666;
-    border: 1px solid #bbb; }
-    .button:hover .icon {
-      opacity: 1; }
-  .button:active {
-    margin-top: 1px;
-    margin-bottom: -1px;
-    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
-    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
-  .button .icon {
-    opacity: 0.8; }
-
-/* a.Sprites
-----------------------------------------------------------------
-
-[Table of contents] - a map of our sprites.
-
-    0.General
-    1.Icons
-    2.Assorted
-
----------------------------------------------------------------- */
-/* 0.`General Sprite Styles
----------------------------------------------- */
-.sprite, .icon {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-  vertical-align: top;
-  overflow: hidden;
-  line-height: 0;
-  text-indent: -9999px; }
-
-.icon {
-  background-image: url("../img/site/grid-sprite-icons.png"); }
-
-.icon-grid {
-  background-position: 0px 0px;
-  width: 14px;
-  height: 14px; }
-
-/* 1.`Icon Sprites
----------------------------------------------- */

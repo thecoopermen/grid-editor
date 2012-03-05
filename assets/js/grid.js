@@ -23,103 +23,158 @@
 		var
 		columnAttrs = {
 				name: columns,
-				id: columns,
-				type: 'text',
 				value: localStorage.getItem(columns) ? localStorage.getItem(columns) : 8
 		},
 
 		layoutWidthAttrs = {
 				name: layoutWidth,
-        id: layoutWidth,
-        type: 'text',
-        value: localStorage.getItem(layoutWidth) ? localStorage.getItem(layoutWidth) : 960 
+				value: localStorage.getItem(layoutWidth) ? localStorage.getItem(layoutWidth) : 960 
 		},
 
 		marginWidthAttrs = {
 				name: marginWidth,
-        id: marginWidth,
-        type: 'text',
-        value: localStorage.getItem(marginWidth) ? localStorage.getItem(marginWidth) : 10 
+				value: localStorage.getItem(marginWidth) ? localStorage.getItem(marginWidth) : 10 
 		},
 
-		columnsInput = createElement( 'input', columns, columnAttrs ), 
-		columnsLabel = createElement( 'label', 'grid-form-label', {'for': columns}),
+		$columnsInput = $("<input class='text' />")
+			.attr(columnAttrs)
+			.data('input', 'columns'),
 
-		layoutWidthInput = createElement( 'input', layoutWidth, layoutWidthAttrs ),
-		layoutWidthLabel = createElement( 'label', 'grid-form-label', {'for': layoutWidth}),
+		$columnsLabel = $("<label class='grid-form-label' />")
+			.attr('for', 'columns')
+			.text('Columns'),
 
-		marginWidthInput = createElement( 'input', marginWidth, marginWidthAttrs ), 
-		marginWidthLabel = createElement( 'label', 'grid-form-label', {'for': marginWidth}),
+		$layoutWidthInput = $("<input class='text'/>")
+			.attr(layoutWidthAttrs)
+			.data('input', 'layout_width'),
 
-		newGridButton = createElement( 'a', 'new-grid-element', {'href': '#', 'class': 'button right', 'id': 'new-grid-element'} ),
+		$layoutWidthLabel = $("<label class='grid-form-label'/>")
+			.attr('for', 'layout_width')
+			.text('Layout Width'),
+
+		$marginWidthInput = $("<input class='text'/>")
+			.attr(marginWidthAttrs)
+			.data('input', 'margin_width'),
+
+		$marginWidthLabel = $("<label class='grid-form-label'/>")
+			.attr('for', 'margin_width')
+			.text('Margin Width'),
+
+		$gridIcon = $("<div class='icon icon-grid' />"),
+		$newGridButtonText = $("<span/>").text('add grid element'),
+		$newGridButton = $("<a id='new-grid-element' />")
+			.attr({
+				'href': '#',
+				'class': 'button right'
+			})
+			.append($gridIcon)
+			.append($newGridButtonText);
 		
-		newGridButtonHTML = createElement( 'span', '');
-		newGridButtonHTML.innerHTML = 'add grid element';
-		gridIcon = createElement('div', '', {'class': ' icon icon-grid'});
-
-
-		columnsLabel.innerHTML = 'Columns';
-		layoutWidthLabel.innerHTML = 'Layout Width';
-		marginWidthLabel.innerHTML = 'Margin Width';
-		newGridButton.appendChild(gridIcon);
-		newGridButton.appendChild(newGridButtonHTML);
-		// newGridButton.innerHTML = 'add grid element';
+		$newGridButton
+			.append($gridIcon)
+			.append($newGridButtonText);
 
 		var
 		gridFields = [
-			columnsLabel,
-			columnsInput,
-			layoutWidthLabel,
-			layoutWidthInput,
-			marginWidthLabel,
-			marginWidthInput,
-			newGridButton
 		],
 
-    // ...and turn them into an object that contains DOM elements
-		gridEditor = createElement('div','', {id: 'grid-editor'}),
-		wrapper = createElement('div',''),
-		form = createElement('form'),
-    body = document.getElementsByTagName("body")[0],
-    len = gridFields.length,
-    i = 0;
+		$gridEditor = $("<div id='grid-editor'/>"),
+		$form = $("<form/>");
 
-		// insert the form inside the body
-		body.insertBefore(gridEditor, document.body.firstChild);
-		gridEditor.appendChild(wrapper);
-		wrapper.appendChild(form);
+		$gridEditor.append($form);
+		$('body').prepend($gridEditor);
 
-    for (i; i < len; i++) {
-      // ...and insert each input into the form 
-			form.appendChild(gridFields[i]);
-    }
+		$form
+			.append($columnsLabel)
+			.append($columnsInput)
+			.append($layoutWidthLabel)
+			.append($layoutWidthInput)
+			.append($marginWidthLabel)
+			.append($marginWidthInput)
+			.append($newGridButton);
 
-    setupInputEvents( layoutWidth );
-    setupInputEvents( marginWidth );
-    setupInputEvents( columns );
+		setupInputEvents( layoutWidth );
+		setupInputEvents( marginWidth );
+		setupInputEvents( columns );
 		setupGrid();
   }
 
 
+
+	function setupGrid() {
+		var
+		gridElements = getGridElements(),
+		gridLen = gridElements.length,
+		wrappers = getWrapperElements(),
+		wrapperLen = wrappers.length,
+		i = 0; 
+
+		for (i; i < wrapperLen; i++) {
+				wrappers[i].style.marginLeft = 'auto';
+				wrappers[i].style.marginRight = 'auto';
+				wrappers[i].className = " wrapper group";
+		}
+
+		$(gridElements).each(function() {
+			var 
+			$config           = $("<div class='grid-element-config' />"),
+			$configLinkButton = $("<div class='config-link-button' />"),
+			$configLink       = $("<a href='#' class='icon icon-grid grid-element-config-link' />"),
+			$configOverlay    = $("<div class='grid-element-config-overlay button' />"),
+			$configInput      = $("<input class='grid-element-config-columns-number text' />"),
+			$configLabel      = $("<label class='grid-element-config-column-number-label'>Columns</label>");
+
+			$configOverlay.append($configLabel);
+			$configOverlay.append($configInput);
+			$config.append($configLink);
+			$config.append($configOverlay);
+
+			// add config element to dom
+			$(this)
+				.append($config)
+				.addClass('grid')
+				.hover(showGridOptions, hideGridOptions); 
+
+			$configLink.bind('click', function(){
+				$configOverlay.toggleClass('s-active');
+			});
+		});
+	}
+
+
+
+	function showGridOptions() {
+		$(this).addClass('s-hover');
+	}
+
+
+
+	function hideGridOptions() {
+		$(this).removeClass('s-hover');
+	}
+
+
+
   // set events for manipulating the grid
   function setupInputEvents( id ) {
+
     var
-    input = document.getElementById( id ),
-		value = parseFloat(input.value),
+    $input = $('input').data('input', id),
+		value = parseFloat($input.val()),
 		arrowKey = false;
 
-		routeInput.call(input);
+		routeInput.call($input);
 
-		input.onkeyup = function() {
+		$input.keyup(function() {
 			if (!arrowKey) {
-				value = parseFloat(this.value);
-				this.setAttribute('value', value);
+				value = parseFloat($(this).val());
+				$(this).attr('value', value);
 				routeInput.call(this); 
 			}
-		};
+		});
 
-		input.onkeydown = function(e) {
-			value = parseFloat(this.value);
+		$input.keydown(function(e) {
+			value = parseFloat($(this).val());
 
 			if (e.keyCode ==  38) {
 				arrowKey = true;
@@ -140,70 +195,19 @@
 				else this.value = 1;
 				routeInput.call(this); 
 			}
-		};
+		});
   }
 
 
-	function setupGrid() {
-		var
-		gridElements = getGridElements(),
-		gridLen = gridElements.length,
-		wrappers = getWrapperElements(),
-		wrapperLen = wrappers.length,
-		i = 0; 
-
-		for (i; i < wrapperLen; i++) {
-				wrappers[i].style.marginLeft = 'auto';
-				wrappers[i].style.marginRight = 'auto';
-				wrappers[i].className = " wrapper group";
-		}
-
-		for (i = 0; i < gridLen; i++) {
-
-			// add config element to dom
-			var 
-			config        = createElement('div', '', {'class': 'grid-element-Config'}),
-			configLink    = createElement('div', '', {'class': 'grid-element-config-link'}),
-			configOverlay = createElement('div', '', {'class': 'grid-element-config-overlay'});
-			configInput   = createElement('input', '', {'class': 'grid-element-config-columns-number'});
-			configLabel   = createElement('label', '', {'class': 'grid-element-config-column-number-label'});
-
-			configLabel.innerHTML = 'Columns';
-			configOverlay.appendChild(configLabel);
-			configOverlay.appendChild(configInput);
-			config.appendChild(configLink);
-			config.appendChild(configOverlay);
-			config.style.display = 'none';
-
-			gridElements[i].appendChild(config);
-			gridElements[i].className = " grid";
-
-			gridElements[i].config = config; // save a reference to this elements config
-			gridElements[i].configLink = configLink; // save a reference to this elements config link
-
-			// setup events
-			if (gridElements[i].addEventListener) {
-				gridElements[i].addEventListener('mouseover', showGridOptions, false);
-				gridElements[i].addEventListener('mouseout', hideGridOptions, false);
-			}
-		}
-	}
-
-
-	function showGridOptions() {
-		this.configLink.style.display = 'block';
-	}
-
-	function hideGridOptions() {
-		this.configLink.style.display = 'none';
-	}
-
   function routeInput() {
-		var input;
+		var 
+		input,
+		$this = $(this);
+
     // is it a number?
-    if (checkIsNumber(this.value)) {
+    if (checkIsNumber($this.val())) {
       // which input is it for?
-      switch (this.getAttribute('id')) {
+      switch ($this.data('input')) {
         case columns:
 					input = columns;
           break;
@@ -217,8 +221,10 @@
           alert('unexpected input id');
       }
     }
-		if (input) modifyGridElements.call(this, input);
+		if (input) modifyGridElements.call($this, input);
   }
+
+
 
   function modifyGridElements(input) {
 		var
@@ -232,9 +238,9 @@
 
 		// add current input values to localStorage if we have it 
 		if (localStorage) {
-			if (input == layoutWidth) localStorage.setItem( layoutWidth, this.value );
-			else if (input == marginWidth) localStorage.setItem( marginWidth, this.value );
-			else if (input == columns) localStorage.setItem( columns, this.value );
+			if (input == layoutWidth) localStorage.setItem( layoutWidth, this.val() );
+			else if (input == marginWidth) localStorage.setItem( marginWidth, this.val() );
+			else if (input == columns) localStorage.setItem( columns, this.val() );
 		}
 
 		//
@@ -300,15 +306,15 @@
 	}
 
   function getMarginWidth() {
-    return parseFloat(document.getElementById(marginWidth).value);
+    return parseFloat($('input').data('input', 'margin_width').val());
   }
 
   function getLayoutWidth() {
-    return parseFloat(document.getElementById(layoutWidth).value);
+    return parseFloat($('input').data('input', 'layout_width').val());
   }
 
 	function getNumberOfCols() {
-		return parseFloat(document.getElementById(columns).value);
+		return parseFloat($('input').data('input', 'columns').val());
 	}
 
   window.onload = function() {

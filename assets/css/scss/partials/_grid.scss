@@ -26,22 +26,6 @@ $percent-margin: $margin / $layout-margin-width;
 		@include font(14, 14);
 		color: #adadad;
 	}
-
-	input {
-		width: 4em;
-		padding: $base/4 $base/4;
-		margin-right: $base*1.5;
-		@include font(13, 18);
-		border: 1px solid #e6e6e6;
-		color: #252525;
-		@include rounded(2px);
-		@include box-shadow(0, 1px, 0, rgba(255, 255, 255, 0.4));
-		@include inner-shadow(2px, 2px, 7px, rgba(0, 0, 0, 0.05));
-
-		&:focus {
-			outline: 0;
-		}
-	}
 }
 
 #new-grid-element {
@@ -60,10 +44,38 @@ $percent-margin: $margin / $layout-margin-width;
 
 .grid {
 	position: relative;
+
+	&.s-hover {
+		.grid-element-config-link {
+			display: block;
+		}
+
+		.grid-element-config-overlay {
+			display: none;
+
+			&.s-active {
+				display: block;
+			}
+		}
+	}
 }
 
 .grid-element-config {
+	position: absolute;
+	top: $base/2;
+	right: $base/2;
+}
 
+.grid-element-config-link {
+	display: none;
+}
+
+.grid-element-config-overlay {
+	display: none;
+
+	// &.s-active {
+	//   display: block;
+	// }
 }
 
 
