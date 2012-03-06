@@ -122,10 +122,15 @@ img {
 .left { float: left; }
 .right { float: right; }
 
+.label {
+		margin-right: $base/2;
+		@include font(14, 14);
+		color: #adadad;
+}
+
 .text {
 	width: 4em;
 	padding: $base/4 $base/4;
-	margin-right: $base*1.5;
 	@include font(13, 18);
 	border: 1px solid #e6e6e6;
 	color: #252525;
@@ -138,15 +143,20 @@ img {
 	}
 }
 
-.button {
-	padding: $base/3 $base/1.5;
+.ui {
+	padding: $base/4 $base/1.5;
 	border: 1px solid #d1d1d1;
 	@include rounded(2px);
 	@include linear-gradient(#fff, #e8e8e8);
 	@include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 0.08));
-	@include font(14, 14);
 	text-decoration: none;
 	color: #878787;
+}
+
+.button {
+	@extend .ui;
+	@include font(14, 14);
+	padding: $base/3 $base/1.5;
 
 	&:hover {
 		color: #666;

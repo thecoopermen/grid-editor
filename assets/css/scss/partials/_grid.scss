@@ -21,11 +21,9 @@ $percent-margin: $margin / $layout-margin-width;
 	@include linear-gradient(#fff, #ededed);
 	@include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 0.1));
 
-	label {
-		margin-right: $base/2;
-		@include font(14, 14);
-		color: #adadad;
-	}
+	.text {
+		margin-right: $base*1.5;
+	}	
 }
 
 #new-grid-element {
@@ -64,14 +62,39 @@ $percent-margin: $margin / $layout-margin-width;
 	position: absolute;
 	top: $base/2;
 	right: $base/2;
+	bottom: $base/2;
+	left: $base/2;
+
+	&.s-active {
+		.grid-element-config-link,
+		.grid-element-config-overlay {
+			display: block;
+			opacity: 1;
+		}
+	}
 }
 
 .grid-element-config-link {
 	display: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 2;
+	opacity: 0.4;
+	@include transition(opacity);
+
+	&.s-hover {
+		opacity: 0.8;
+	}
 }
 
 .grid-element-config-overlay {
 	display: none;
+	position: absolute;
+	width: 130px;
+	top: 45px;
+	right: -65px;
+	z-index: 1;
 
 	// &.s-active {
 	//   display: block;

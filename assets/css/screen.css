@@ -110,10 +110,15 @@ img {
 .right {
   float: right; }
 
+.label {
+  margin-right: 0.75em;
+  font-size: 0.875em;
+  line-height: 1em;
+  color: #adadad; }
+
 .text {
   width: 4em;
   padding: 0.375em 0.375em;
-  margin-right: 2.25em;
   font-size: 0.813em;
   line-height: 1.385em;
   border: 1px solid #e6e6e6;
@@ -129,8 +134,8 @@ img {
   .text:focus {
     outline: 0; }
 
-.button {
-  padding: 0.5em 1em;
+.ui, .button {
+  padding: 0.375em 1em;
   border: 1px solid #d1d1d1;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -143,10 +148,13 @@ img {
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-  font-size: 0.875em;
-  line-height: 1em;
   text-decoration: none;
   color: #878787; }
+
+.button {
+  font-size: 0.875em;
+  line-height: 1em;
+  padding: 0.5em 1em; }
   .button:hover {
     color: #666;
     border: 1px solid #bbb; }
@@ -210,11 +218,8 @@ img {
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
-  #grid-editor label {
-    margin-right: 0.75em;
-    font-size: 0.875em;
-    line-height: 1em;
-    color: #adadad; }
+  #grid-editor .text {
+    margin-right: 2.25em; }
 
 #new-grid-element {
   margin-right: 2.25em; }
@@ -238,13 +243,36 @@ img {
 .grid-element-config {
   position: absolute;
   top: 0.75em;
-  right: 0.75em; }
+  right: 0.75em;
+  bottom: 0.75em;
+  left: 0.75em; }
+  .grid-element-config.s-active .grid-element-config-link,
+  .grid-element-config.s-active .grid-element-config-overlay {
+    display: block;
+    opacity: 1; }
 
 .grid-element-config-link {
-  display: none; }
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  opacity: 0.4;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  -moz-transition: opacity 0.25s ease-in-out;
+  -o-transition: opacity 0.25s ease-in-out;
+  -ms-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out; }
+  .grid-element-config-link.s-hover {
+    opacity: 0.8; }
 
 .grid-element-config-overlay {
-  display: none; }
+  display: none;
+  position: absolute;
+  width: 130px;
+  top: 45px;
+  right: -65px;
+  z-index: 1; }
 
 .grid-1 {
   width: 7.292%;
