@@ -1,7 +1,7 @@
 // edit these values
 $cols: 12;
-$margin: 5;
-$layout-width: 950; 
+$margin: 10;
+$layout-width: 760; 
 
 // do not edit these values
 $layout-margin-width: $layout-width + $margin * 2;
@@ -20,6 +20,10 @@ $percent-margin: $margin / $layout-margin-width;
 	border-bottom: 1px solid #d5d5d5;
 	@include linear-gradient(#fff, #ededed);
 	@include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 0.1));
+
+	.label {
+		white-space: nowrap;
+	}
 
 	.text {
 		margin-right: $base*1.5;
@@ -62,8 +66,8 @@ $percent-margin: $margin / $layout-margin-width;
 	position: absolute;
 	top: $base/2;
 	right: $base/2;
-	bottom: $base/2;
-	left: $base/2;
+	font-size: 16px;
+	line-height: 24px;
 
 	&.s-active {
 		.grid-element-config-link,
@@ -89,11 +93,12 @@ $percent-margin: $margin / $layout-margin-width;
 }
 
 .grid-element-config-overlay {
+	padding: 5px 10px;
 	display: none;
 	position: absolute;
 	width: 130px;
 	top: 45px;
-	right: -65px;
+	right: -55px;
 	z-index: 1;
 
 	// &.s-active {

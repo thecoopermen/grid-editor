@@ -164,7 +164,7 @@
 			$config           = $("<div class='grid-element-config' />"),
 			$configLink       = $("<a href='#' class='button grid-element-config-link' />"),
 			$configLinkIcon   = $("<span class='icon icon-grid'  />"),
-			$configOverlay    = $("<div class='grid-element-config-overlay ui' />"),
+			$configOverlay    = $("<div class='grid-element-config-overlay ui-overlay' />"),
 			$configInput      = $("<input class='grid-element-config-columns-number text' />"),
 			$configLabel      = $("<label class='label grid-element-config-column-number-label'>Columns</label>");
 
@@ -177,9 +177,9 @@
 			$(this)
 				.append($config)
 				.addClass('grid')
-				.hover(toggleHoverClass, toggleHoverClass); 
+				.hover(addHoverClass, removeHoverClass); 
 
-			$configLink.hover(toggleHoverClass, toggleHoverClass);
+			$configLink.hover(addHoverClass, removeHoverClass);
 			$configLink.append($configLinkIcon);
 			$configLink.bind('click', function(e){
 				e.preventDefault();
@@ -187,13 +187,17 @@
 			});
 
 			$(this).attr('data-order', i);
-			$configInput.attr('data-input', 'column').val((localStorage.getItem('gridOrder-' + i) !== false ? localStorage.getItem('gridOrder-' + i) : $(this).data('grid')));
+			$configInput.attr('data-input', 'column').val((localStorage.getItem('gridOrder-' + i) !== false ? localStorage.getItem('gridOrder-' + i) : $(this).attr('data-grid')));
 			routeInput($configInput.get(0));
 		});
 	}
 
-	function toggleHoverClass() {
-		$(this).toggleClass('s-hover');
+	function addHoverClass() {
+		$(this).addClass('s-hover');
+	}
+
+	function removeHoverClass() {
+		$(this).removeClass('s-hover');
 	}
 
   function routeInputChange() {
