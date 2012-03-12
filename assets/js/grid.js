@@ -159,14 +159,19 @@
 				wrappers[i].className = " wrapper group";
 		}
 
+
+		var configs = [];
+
 		$(gridElements).each(function(i) {
 			var 
 			$config           = $("<div class='grid-element-config' />"),
 			$configLink       = $("<a href='#' class='button grid-element-config-link' />"),
 			$configLinkIcon   = $("<span class='icon icon-grid'  />"),
 			$configOverlay    = $("<div class='grid-element-config-overlay ui-overlay' />"),
-			$configInput      = $("<input class='grid-element-config-columns-number text' />"),
+			$configInput      = $("<input class='grid-element-config-columns-number text-contrast' />"),
 			$configLabel      = $("<label class='label grid-element-config-column-number-label'>Columns</label>");
+
+			configs.push($config.get(0));
 
 			$configOverlay.append($configLabel);
 			$configOverlay.append($configInput);
@@ -183,7 +188,15 @@
 			$configLink.append($configLinkIcon);
 			$configLink.bind('click', function(e){
 				e.preventDefault();
-				$config.toggleClass('s-active');
+				// $config.toggleClass('s-active');
+				$(configs).each(function() {
+					if ($config.get(0) === this) {
+						$(this).toggleClass('s-active');
+					}
+					else {
+						$(this).removeClass('s-active');
+					}
+				});
 			});
 
 			$(this).attr('data-order', i);

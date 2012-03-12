@@ -34,6 +34,13 @@ Please, have a look around, I hope you enjoy your stay.
 
 ---------------------------------------------------------------- */
 
+$tan: #e3e2d8;
+$orange: #ff7f00;
+$brown: #333231;
+$red: #ca4116;
+$blue: #536484;
+$pink: #f4d9d0;
+
 
 /* 0.`General
 ---------------------------------------------- */
@@ -58,7 +65,7 @@ html {
 body {
 	min-height: 100%;
 	-moz-font-feature-settings: "liga=0";
-	padding-top: 64px;
+	// background-image: url('/assets/img/bg-noise.png');
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -91,6 +98,22 @@ img {
 
 /* 2.`Layout
 ---------------------------------------------- */
+
+#headers {
+	padding-top: 64px;
+	background-color: $red;
+	background-color: $blue;
+}
+
+#content {
+	background-color: #{mix($red, $brown, 80%)};
+	background-color: $blue;
+	// background-color: $brown;
+	// color: rgba(255, 255, 255, 0.6);
+	color: mix($red, #fff, 30%);
+	color: $pink;
+	color: #fff;
+}
 
 #site-nav {
 	text-align: center;
@@ -155,6 +178,12 @@ img {
 	}
 }
 
+.text-contrast {
+	@extend .text;
+	border: 1px solid #bbb;
+	@include inner-shadow(2px, 2px, 7px, rgba(0, 0, 0, 0.2));
+}
+
 .ui {
 	border: 1px solid #d1d1d1;
 	@include rounded(2px);
@@ -196,3 +225,4 @@ img {
 
 @import "partials/sprites";
 @import "partials/grid";
+@import "partials/pages";

@@ -37,20 +37,50 @@ body {
 }
 
 #masthead {
-	font-family: 'ratio', 'ff-dax-web-pro';
-	@include font(148, 148);
-	margin-bottom: $base/8;
+	font-family: 'fatboy', 'ff-tisa-web-pro';
+	font-family: 'nimbus-sans-extended';
+	font-family: 'nimbus-sans-condensed';
+	// font-family: 'ratio', 'ff-dax-web-pro';
+	@include font(64,64);
+	@include font(124, 102);
 	text-align: left;
+	text-transform: uppercase;
+	color: $orange;
+
+	.masthead-contrast {
+		margin-left: $base/8;
+		font-family: 'nimbus-sans-condensed';
+		opacity: 0.8;
+		text-transform: uppercase;
+		color: #fff;
+		// color: $pink;
+	}
 }
 
-#submasthead {
-	font-family: 'ratio', 'ff-dax-web-pro';
-	@include font(36, 48);
+.submasthead {
+	@include group;
+	clear: both;
 	margin-bottom: $base;
+}
+
+.submasthead-question {
+	font-family: 'ff-tisa-web-pro';
+	font-style: italic;
+	@include font(40, 48);
+	text-align: justify;
+	// text-transform: uppercase;
 	text-align: left;
+	color: $orange;
+	// opacity: 0.3;
+}
+
+.submasthead-answer {
+	font-family: 'ff-tisa-web-pro';
+	@include font(40, 48);
+	color: rgba(255, 255, 255, 0.8);
 }
 
 p {
-	font-family: 'rooney-web';
-	@include font(24, 28);
+	font-family: 'ff-tisa-web-pro';
+	@include font(24, 31);
 }

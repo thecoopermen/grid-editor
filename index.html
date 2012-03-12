@@ -4,12 +4,6 @@
 	<head>
 		<link rel="stylesheet" href="assets/css/screen.css" type="text/css" media="screen" />
 
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" charset="utf-8">
-		</script>
-		<script type="text/javascript" src="assets/js/helpers.js"></script>
-		<script type="text/javascript" src="assets/js/gridHelpers.js"></script>
-		<script type="text/javascript" src="assets/js/grid.js"></script>
-
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<meta http-equiv="content-type" content="text/html"; charset="utf-8" />
 
@@ -44,34 +38,50 @@
 
 	<body>
 
-		<div data-gridWrapper="true">
-			<div data-grid="8">
-				<h1 id="masthead">A Living Grid</h1>
+		<header id="headers">
+			<div data-gridWrapper="true">
+				<div data-grid="8">
+					<h1 id="masthead">A Living Grid?<span class="masthead-contrast">Yes.</span></h1>
+				</div>
+
+				<div class="submasthead">
+					<div data-grid="8">
+						<h3 class="submasthead-question">Can we actually design in browser? </h3>
+					</div>
+					<div data-grid="8">
+						<h3 class="submasthead-answer">I think so. You should too.</h3>
+					</div>
+				</div>
 			</div>
+		</header>
 
-			<div data-grid="8">
-				<h3 id="submasthead">In which we know JavaScript, and are very tired of Photoshop as a web design tool.</h3>
-			</div>
+		<div id="content">
+			<div data-gridWrapper="true">
+				<div data-grid="6">
+					<p>
+						We are gaining so much power each day with new tools in the browser, and it is becoming a nuisance to be working in so many places so inefficiently. One of those places, is layout. The browser's box model, makes designing layouts in the browser something that would be magical, if only we had the tools to manipulate the dom efficiently. Well, here's my first stab at it. </p>
+					<p>
+						We know JavaScript, we know the browser like the back of our hands. It's time to start building our own tools and leaving tools like photoshop in their rightful place, which is not layout. Here is my start at getting there. Play around with the inputs at the top of the page to change global settings to the layout. 
+					</p>
+				</div>
+				<div data-grid="6">
+					<p>
+						Hover over grid elements and click on their configure icon to edit the number of columns they consume.   
+						I have lots of ideas on how to improve this and to make it a viable tool for design, though it's already proving very useful for me. Tell me your ideas, so I can make it a better tool for you too!
+					</p>
+				</div>
 
-			<div data-grid="6">
-				<p>
-					Fixie pariatur brunch non sustainable dolor nisi aliquip. Whatever leggings kogi sed cred ad. Kogi nostrud odio, twee craft beer banksy kale chips vegan ethical do exercitation veniam yr gastropub pitchfork. +1 biodiesel adipisicing selvage, irony fugiat sapiente. High life eu typewriter kogi consequat narwhal sed. Incididunt hella ullamco, carles fap wayfarers direct trade delectus fingerstache pop-up flexitarian retro. Magna small batch sint, pickled cardigan hella polaroid ex eu.
-
-					Polaroid tempor duis elit, accusamus non fanny pack. Labore put a bird on it mixtape 8-bit farm-to-table narwhal, odio leggings sriracha lomo master cleanse. Do adipisicing fugiat, cardigan keytar laboris lomo four loko aesthetic leggings. Nostrud chambray excepteur adipisicing, godard typewriter bicycle rights. Dolor id do street art, ad pariatur banksy godard twee delectus exercitation. Pariatur wayfarers pour-over umami direct trade cliche. Craft beer id tempor, american apparel street art quis williamsburg pour-over irony umami.
-				</p>
-			</div>
-			<div data-grid="6">
-				<p>
-					Fixie pariatur brunch non sustainable dolor nisi aliquip. Whatever leggings kogi sed cred ad. Kogi nostrud odio, twee craft beer banksy kale chips vegan ethical do exercitation veniam yr gastropub pitchfork. +1 biodiesel adipisicing selvage, irony fugiat sapiente. High life eu typewriter kogi consequat narwhal sed. Incididunt hella ullamco, carles fap wayfarers direct trade delectus fingerstache pop-up flexitarian retro. Magna small batch sint, pickled cardigan hella polaroid ex eu.
-
-					Polaroid tempor duis elit, accusamus non fanny pack. Labore put a bird on it mixtape 8-bit farm-to-table narwhal, odio leggings sriracha lomo master cleanse. Do adipisicing fugiat, cardigan keytar laboris lomo four loko aesthetic leggings. Nostrud chambray excepteur adipisicing, godard typewriter bicycle rights. Dolor id do street art, ad pariatur banksy godard twee delectus exercitation. Pariatur wayfarers pour-over umami direct trade cliche. Craft beer id tempor, american apparel street art quis williamsburg pour-over irony umami.
-				</p>
-			</div>
-
-			<div data-grid="4">
-				<img src="assets/img/uncanny_valley.jpg" alt="Uncanny Valley" />
+				<div data-grid="4">
+					<img src="assets/img/uncanny_valley.jpg" alt="Uncanny Valley" />
+				</div>
 			</div>
 		</div>
 
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" charset="utf-8">
+		</script>
+		<script type="text/javascript" src="assets/js/helpers.js"></script>
+		<script type="text/javascript" src="assets/js/gridHelpers.js"></script>
+		<script type="text/javascript" src="assets/js/grid.js"></script>
+		<script type="text/javascript fipg' src='/assets/js'>
 	</body>
 </html>
