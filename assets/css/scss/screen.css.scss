@@ -101,18 +101,12 @@ img {
 
 #headers {
 	padding-top: 64px;
-	background-color: $red;
-	background-color: $blue;
+	background-color: #000;
 }
 
 #content {
-	background-color: #{mix($red, $brown, 80%)};
-	background-color: $blue;
-	// background-color: $brown;
-	// color: rgba(255, 255, 255, 0.6);
-	color: mix($red, #fff, 30%);
-	color: $pink;
-	color: #fff;
+	background-color: #fff;
+	color: #000;
 }
 
 #site-nav {
@@ -127,16 +121,7 @@ img {
 	}
 }
 
-#g-header {
-
-}
-
-#g-content {
-
-}
-
-#g-footer {
-
+.masthead {
 }
 
 /* 3.`Extensible Classes

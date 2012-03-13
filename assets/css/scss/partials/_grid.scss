@@ -16,9 +16,9 @@ $percent-margin: $margin / $layout-margin-width;
 	left: 0;
 	width: 100%;
 	padding: $base/4 $base/2;
-	background-color: #f5f5f5;
-	border-bottom: 1px solid #d5d5d5;
-	@include linear-gradient(#fff, #ededed);
+	background-color: #232323;
+	// border-bottom: 1px solid #d5d5d5;
+	// @include linear-gradient(#fff, #ededed);
 	@include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 0.1));
 
 	.label {

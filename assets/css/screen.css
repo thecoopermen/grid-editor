@@ -59,23 +59,26 @@ body {
 .wf-inactive body {
   opacity: 1; }
 
-#masthead {
-  font-family: 'fatboy', 'ff-tisa-web-pro';
-  font-family: 'nimbus-sans-extended';
+.masthead, .masthead-contrast {
   font-family: 'nimbus-sans-condensed';
-  font-size: 4em;
+  font-family: 'raleway';
+  font-size: 6.25em;
   line-height: 1em;
-  font-size: 7.75em;
-  line-height: 0.823em;
-  text-align: left;
   text-transform: uppercase;
   color: #ff7f00; }
-  #masthead .masthead-contrast {
-    margin-left: 0.188em;
-    font-family: 'nimbus-sans-condensed';
-    opacity: 0.8;
-    text-transform: uppercase;
-    color: #fff; }
+
+.masthead-em {
+  font-style: italic; }
+
+.masthead-contrast {
+  font-size: 12.5em;
+  line-height: 1em;
+  font-family: 'bello-pro';
+  margin-bottom: 0.75em;
+  opacity: 0.9;
+  text-transform: inherit;
+  color: #e3e2d8;
+  color: #fff; }
 
 .submasthead {
   min-height: 1px;
@@ -90,18 +93,23 @@ body {
 
 .submasthead-question {
   font-family: 'ff-tisa-web-pro';
+  font-family: 'raleway';
   font-style: italic;
-  font-size: 2.5em;
-  line-height: 1.2em;
-  text-align: justify;
+  font-size: 5.625em;
+  line-height: 1.111em;
+  color: #f4d9d0;
+  color: #fff;
   text-align: left;
-  color: #ff7f00; }
+  text-align: right; }
 
 .submasthead-answer {
   font-family: 'ff-tisa-web-pro';
-  font-size: 2.5em;
-  line-height: 1.2em;
-  color: rgba(255, 255, 255, 0.8); }
+  font-family: 'raleway';
+  font-family: 'bello-pro';
+  font-size: 6.25em;
+  line-height: 1.25em;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.5); }
 
 p {
   font-family: 'ff-tisa-web-pro';
@@ -153,15 +161,11 @@ img {
 ---------------------------------------------- */
 #headers {
   padding-top: 64px;
-  background-color: #ca4116;
-  background-color: #536484; }
+  background-color: #000; }
 
 #content {
-  background-color: #ab3e1b;
-  background-color: #536484;
-  color: #efc6b9;
-  color: #f4d9d0;
-  color: #fff; }
+  background-color: #fff;
+  color: #000; }
 
 #site-nav {
   text-align: center; }
@@ -292,14 +296,7 @@ img {
   left: 0;
   width: 100%;
   padding: 0.375em 0.75em;
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #d5d5d5;
-  background-color: #ededed;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#ededed));
-  background-image: -webkit-linear-gradient(top, white, #ededed);
-  background-image: -moz-linear-gradient(top, white, #ededed);
-  background-image: -ms-linear-gradient(top, white, #ededed);
-  background-image: -o-linear-gradient(top, white, #ededed);
+  background-color: #232323;
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }

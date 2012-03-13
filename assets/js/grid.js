@@ -163,6 +163,8 @@
 		var configs = [];
 
 		$(gridElements).each(function(i) {
+			$(this).css('float', 'left');
+
 			var 
 			$config           = $("<div class='grid-element-config' />"),
 			$configLink       = $("<a href='#' class='button grid-element-config-link' />"),
@@ -240,8 +242,11 @@
 
 	function editGridData(input) {
 		var 
-		val = $(input).val(),
+		columns = getNumberOfCols(),
+		val = $(input).val() > columns ? columns : $(input).val(),
 		$gridElement = $(input).closest('div[data-grid]');
+
+		$(input).val(val);
 
 		$gridElement.attr('data-grid', val);
 		modifyGridElements('gridElement', $gridElement.get(0));
@@ -249,59 +254,70 @@
 
   function modifyGridElements(input, el) {
 		var
-		init,
-		gridElements = getGridElements(),
-		gridData = false,
-    wrappers = getWrapperElements(),
-		margin = getMarginWidth(),
-		percentMargin = (margin / getLayoutWidth() * 100) + '%',
+		gridElements,
+		gridData,
+    wrappers,
+		columns,
+		margin,
+		percentMargin,
 		len,
-		i = 0;
+		i,
+		gridStore,
+		that = this;
 
 
-		// add current input values to localStorage if we have it 
-		if (localStorage) {
-			if (input == layoutWidth) localStorage.setItem( layoutWidth, this.value );
-			else if (input == marginWidth) localStorage.setItem( marginWidth, this.value );
-			else if (input == columns) localStorage.setItem( columns, this.value );
+		(function(input, el) {
+			gridElements = getGridElements();
+			gridData = false;
+			wrappers = getWrapperElements();
+			margin = getMarginWidth();
+			columns = getNumberOfCols();
+			percentMargin = (margin / getLayoutWidth() * 100) + '%';
+			i = 0;
 
-			if (el) {
-				var 
-				order = $(el).attr('data-order'),
-				gridElementData = $(el).attr('data-grid');
+			// add current input values to localStorage if we have it 
+			if (localStorage) {
+				if (input == layoutWidth) localStorage.setItem( layoutWidth, that.value );
+				else if (input == marginWidth) localStorage.setItem( marginWidth, that.value );
+				else if (input == columns) localStorage.setItem( columns, that.value );
 
-				localStorage.setItem('gridOrder-' + order, gridElementData);
+				if (el) {
+					var 
+					order = $(el).attr('data-order'),
+					gridElementData = $(el).attr('data-grid');
+
+					localStorage.setItem('gridOrder-' + order, gridElementData);
+				}
 			}
-		}
 
-		// loop through wrapper elements if editing layout width
-		if (input == layoutWidth) {
-			len = wrappers.length;
+			// loop through wrapper elements if editing layout width
+			if (input == layoutWidth) {
+				len = wrappers.length;
+
+				for(i; i < len; i++) {
+					wrappers[i].style.width = (getLayoutWidth() + getMarginWidth()*2) + 'px';
+				}
+			}
+
+			// loop through grid elements
+			i = 0;
+			len = gridElements.length;
 
 			for(i; i < len; i++) {
-				wrappers[i].style.width = (getLayoutWidth() + getMarginWidth()*2) + 'px';
+				if (localStorage.getItem('gridOrder-' + i)) {
+					gridStore = localStorage.getItem('gridOrder-' + i);
+				}
+
+				gridData = gridElements[i].getAttribute('data-grid') > columns ? columns : gridElements[i].getAttribute('grid-data');
+
+				gridElements[i].style.marginLeft = percentMargin;
+				gridElements[i].style.marginRight = percentMargin;
+				gridElements[i].style.width = (((gridStore !== false ? gridStore : gridData)/columns * 100) - parseFloat(percentMargin)*2) + '%';
 			}
-		}
+			gridStore = false;
 
+		}(input, el));
 
-		// loop through grid elements
-		i = 0;
-		len = gridElements.length;
-
-		for(i; i < len; i++) {
-			if (!init) {
-				gridElements[i].style.cssFloat = 'left';
-			}
-			if (localStorage.getItem('gridOrder-' + i)) {
-				gridData = localStorage.getItem('gridOrder-' + i);
-			}
-
-			gridElements[i].style.marginLeft = percentMargin;
-			gridElements[i].style.marginRight = percentMargin;
-      gridElements[i].style.width = (((gridData !== false ? gridData : gridElements[i].getAttribute('data-grid'))/getNumberOfCols() * 100) - parseFloat(percentMargin)*2) + '%';
-		}
-		init = true;
-		gridData = false;
   }
 
 

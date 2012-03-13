@@ -4,6 +4,35 @@
     -webkit-font-smoothing: antialiased;
 }
 
+@mixin corner() {
+	font-family: 'corner-store';
+}
+
+@mixin bello() {
+	font-family: 'bello-pro';
+}
+
+@mixin raleway() {
+	font-family: 'raleway';
+}
+
+@mixin tisa() {
+	font-family: 'ff-tisa-web-pro';
+}
+
+@mixin fatboy() {
+	font-family: 'fatboy';
+}
+
+@mixin nimbus($weight: 'c') {
+	@if $weight == 'c' {
+		font-family: 'nimbus-sans-condensed'; 
+	}
+	@else {
+		font-family: 'nimbus-sans-extended';
+	}
+}
+
 $line: 24;
 $font-size: 16;
 $em: $font-size * 1;
@@ -36,25 +65,32 @@ body {
 	}
 }
 
-#masthead {
-	font-family: 'fatboy', 'ff-tisa-web-pro';
-	font-family: 'nimbus-sans-extended';
-	font-family: 'nimbus-sans-condensed';
-	// font-family: 'ratio', 'ff-dax-web-pro';
-	@include font(64,64);
-	@include font(124, 102);
-	text-align: left;
+.masthead {
+	@include nimbus('c');
+	@include raleway;
+	@include font(100, 100);
 	text-transform: uppercase;
 	color: $orange;
+	// text-align: center;
+}
 
-	.masthead-contrast {
-		margin-left: $base/8;
-		font-family: 'nimbus-sans-condensed';
-		opacity: 0.8;
-		text-transform: uppercase;
-		color: #fff;
-		// color: $pink;
-	}
+.masthead-em {
+	// @include nimbus('e');
+	font-style: italic;
+}
+
+.masthead-contrast {
+	@extend .masthead;
+	@include font(200, 200);
+	// @include nimbus('c');
+	// @include corner();
+	@include bello;
+	margin-bottom: $base/2;
+	opacity: 0.9;
+	text-transform: inherit;
+	color: $tan;
+	color: #fff;
+	// text-align: center;
 }
 
 .submasthead {
@@ -65,19 +101,29 @@ body {
 
 .submasthead-question {
 	font-family: 'ff-tisa-web-pro';
+	@include raleway();
 	font-style: italic;
-	@include font(40, 48);
-	text-align: justify;
-	// text-transform: uppercase;
+	@include font(90, 100);
+	color: $pink;
+	color: #fff;
 	text-align: left;
-	color: $orange;
-	// opacity: 0.3;
+	text-align: right;
+}
+
+.submasthead-question-em {
+	// font-weight: bold;
+	// @include nimbus;
+	// text-transform: uppercase;
+
 }
 
 .submasthead-answer {
 	font-family: 'ff-tisa-web-pro';
-	@include font(40, 48);
-	color: rgba(255, 255, 255, 0.8);
+	@include raleway();
+	@include bello;
+	@include font(100, 125);
+	text-align: right;
+	color: rgba(255, 255, 255, 0.5);
 }
 
 p {
